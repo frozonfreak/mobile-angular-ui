@@ -12,14 +12,6 @@ angular.module('mobile-angular')
       
     $scope.userAgent = $rootScope.userAgent;
 
-    $rootScope.$on('$routeChangeStart', function(){
-      $rootScope.loading = true;
-    });
-
-    $rootScope.$on('$routeChangeSuccess', function(){
-      $rootScope.loading = false;
-    });
-
   	init();
   	function init(){
           

@@ -2,11 +2,11 @@ var angularmobile = angular.module('mobile-angular',['ui.bootstrap','ui.router',
       $rootScope.userAgent = navigator.userAgent;
       
       // Needed for the loading screen
-      $rootScope.$on('$routeChangeStart', function(){
+      $rootScope.$on('$locationChangeStart', function(){
         $rootScope.loading = true;
       });
 
-      $rootScope.$on('$routeChangeSuccess', function(){
+      $rootScope.$on('$locationChangeSuccess', function(){
         $rootScope.loading = false;
       });
 
@@ -23,8 +23,6 @@ var angularmobile = angular.module('mobile-angular',['ui.bootstrap','ui.router',
       }
 
       $rootScope.scrollItems = scrollItems;
-
-      
 
 });
 
@@ -90,51 +88,16 @@ angularmobile.controller('MainController', function($rootScope, $scope){
   $scope.userAgent = navigator.userAgent;
   
   // Needed for the loading screen
-  $rootScope.$on('$routeChangeStart', function(){
+  $rootScope.$on('$locationChangeStart', function(){
     $rootScope.loading = true;
   });
 
-  $rootScope.$on('$routeChangeSuccess', function(){
+  $rootScope.$on('$locationChangeSuccess', function(){
     $rootScope.loading = false;
   });
 
   // Fake text i used here and there.
   $rootScope.lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel explicabo, aliquid eaque soluta nihil eligendi adipisci error, illum corrupti nam fuga omnis quod quaerat mollitia expedita impedit dolores ipsam. Obcaecati.';
 
-  // 
-  // 'Scroll' screen
-  // 
-  var scrollItems = [];
-
-  for (var i=1; i<=100; i++) {
-    scrollItems.push('Item ' + i);
-  }
-
-  $scope.scrollItems = scrollItems;
-
-  $scope.bottomReached = function() {
-    alert('Congrats you scrolled to the end of the list!');
-  }
-  
-  // 'Forms' screen
-  //  
-  $scope.rememberMe = true;
-  $scope.email = 'me@example.com';
-  
-  $scope.login = function() {
-    alert('You submitted the login form');
-  };
-
-  // 
-  // 'Drag' screen
-  // 
-  $scope.notices = [];
-  
-
-  $scope.deleteNotice = function(notice) {
-    var index = $scope.notices.indexOf(notice);
-    if (index > -1) {
-      $scope.notices.splice(index, 1);
-    }
-  };
 });
+
